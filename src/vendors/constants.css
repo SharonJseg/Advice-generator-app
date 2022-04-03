@@ -1,0 +1,12 @@
+:root {
+  /* Font families */
+  --ff: 'Manrope', sans-serif;
+
+  /* Font Sizes */
+  --fs-base: 1.125rem;
+  --fs-big: 2.5rem;
+
+  /* Colors */
+  --clr-light-pink: #e880e8;
+  --clr-pink: #ff52c1;
+}
