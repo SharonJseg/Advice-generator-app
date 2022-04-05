@@ -3,10 +3,15 @@
   --ff: 'Manrope', sans-serif;
 
   /* Font Sizes */
-  --fs-base: 1.125rem;
-  --fs-big: 2.5rem;
+  --fs-base: 0.8125rem;
+  --fs-big: 1.75rem;
+
+  /* Font Weight */
+
+  --fw-base: 800;
 
   /* Colors */
-  --clr-light-pink: #e880e8;
-  --clr-pink: #ff52c1;
+  --clr-grayish-blue: #313a48;
+  --clr-neon-green: #53ffaa;
+  --clr-light-cyan: #cee3e9;
 }
