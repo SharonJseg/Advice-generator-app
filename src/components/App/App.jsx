@@ -1,47 +1,26 @@
-import './App.css';
-import divider from '../../images/pattern-divider-desktop.svg';
-import mobileDivider from '../../images/pattern-divider-mobile.svg';
-import dice from '../../images/icon-dice.svg';
 import { useEffect, useState } from 'react';
+import { fetchAdvice } from '../../utils/api';
+import Advice from '../Advice/Advice';
+import './App.css';
 
 const App = () => {
   const [advice, setAdvice] = useState({});
 
-  const fetchAdvice = async () => {
-    try {
-      const response = await fetch('https://api.adviceslip.com/advice');
-      const data = await response.json();
-      setAdvice(data.slip);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const onClickHandler = () => {
-    fetchAdvice();
+    fetchAdvice()
+      .then((res) => setAdvice(res))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
-    fetchAdvice();
+    fetchAdvice()
+      .then((res) => setAdvice(res))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className='page'>
-      <article className='advice__container'>
-        <h2 className='advice__number'>{`advice #${advice.id}`}</h2>
-        <p className='advice__text'>{`“${advice.advice}”`}</p>
-        <div>
-          <img className='advice__divider' src={divider} alt='' />
-          <img className='advice__mobile-divider' src={mobileDivider} alt='' />
-        </div>
-        <button
-          type='button'
-          className='advice__button'
-          onClick={onClickHandler}
-        >
-          <img className='dice' src={dice} alt='' />
-        </button>
-      </article>
+      <Advice onClick={onClickHandler} advice={advice} />
     </div>
   );
 };
